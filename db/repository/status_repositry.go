@@ -32,7 +32,7 @@ func (s *StatusRepository) GetDataFromDb() ([]models.StatusModel, error) {
 		return nil, nil
 	}
 	var rows []models.StatusModel
-	lastWeekTimeStamp := time.Now().AddDate(0, 0, -7*100).UTC().String()
+	lastWeekTimeStamp := time.Now().AddDate(0, 0, -7).UTC().String()
 	query := "SELECT * FROM Store_Monitoring.Status WHERE timestamp_utc >= ? ORDER by timestamp_utc ASC"
 	response, err := dbConnection.Query(query, lastWeekTimeStamp)
 	if err != nil {
