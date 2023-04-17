@@ -53,7 +53,7 @@ func (f *File) CreateReportCsvFile(filePath string, storeDataMap map[string]dto.
 		{"store_id", "uptime_last_hour", "uptime_last_day", "update_last_week", "downtime_last_hour", "downtime_last_day", "downtime_last_week"},
 	}
 	for storeId, storeData := range storeDataMap {
-		row := []string{storeId, storeData.UpTimeLastHour, storeData.UpTimeLastDay, storeData.DownTimeLastWeek, storeData.DownTimeLastHour, storeData.DownTimeLastDay, storeData.DownTimeLastWeek}
+		row := []string{storeId, storeData.UpTimeLastHour, storeData.UpTimeLastDay, storeData.UpTimeLastWeek, storeData.DownTimeLastHour, storeData.DownTimeLastDay, storeData.DownTimeLastWeek}
 		rows = append(rows, row)
 	}
 	err = csvWriter.WriteAll(rows)
